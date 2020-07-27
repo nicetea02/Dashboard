@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Creating Dynamic Data Graph using PHP and Chart.js</title>
+<title>Phasing score graph</title>
 <style type="text/css">
 
 
@@ -25,7 +25,7 @@
 
 </head>
 <div class="header">
-<h1>NIPT Quality Control Module</h1>
+<h1>Phasing graph</h1>
 </div>
 <body>
 	<div id="chart-container" style="position: relative; height:40vh; width:80vw">
@@ -33,9 +33,6 @@
 	</div>
 
 	<script>
-		// $(document).ready(function () {
-		// 	showGraph();
-		// });
 
 
 		function showGraph()
@@ -60,7 +57,6 @@
 						datasets: [
 							{
 								label: 'phasing',
-								//backgroundColor: '#49e2ff', (to fill the area under graph line)
 								borderColor: '#46d5f1',
 								hoverBackgroundColor: '#CCCCCC',
 								hoverBorderColor: '#666666',
@@ -68,7 +64,6 @@
 							},
 							{
 								label: 'lower_limit',
-								//backgroundColor: '#49e2ff', (to fill the area under graph line)
 								borderColor: '#ff0000',
 								hoverBackgroundColor: '#ff0000',
 								hoverBorderColor: '#666666',
@@ -98,24 +93,7 @@
 		  
         },
 	  }],
-	},
-    pan: {
-      enabled: true,
-      mode: "x",
-      speed: 10,
-      threshold: 10
-    },
-    zoom: {
-      enabled: true,
-      drag: false,
-      mode: "xy",
-     speed: 0.5,
-     // sensitivity: 0.1,
-      limits: {
-        max: 10,
-        min: 0.5
-      }
-    }
+	}
   }
 });
 

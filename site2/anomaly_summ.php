@@ -238,6 +238,7 @@ a:hover, a:focus {
  <body>
  <div class="header">
 <h1>Summary of positive NIPT samples</h1>
+<button class="button" style="vertical-align:middle"onclick="window.location.href = 'ContactFrom_v5/anomaly_form.html';"><span>Anomaly positives</span></button>
 </div>
  <p>
  <?php

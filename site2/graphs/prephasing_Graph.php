@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Creating Dynamic Data Graph using PHP and Chart.js</title>
+<title>Prephasing score graph</title>
 <style type="text/css">
-BODY {
-	width: 550PX;
-}
 
 #chart-container {
 	width: 100%;
@@ -24,15 +21,15 @@ BODY {
 
 
 </head>
+<div class="header">
+<h1>Prephasing graph</h1>
+</div>
 <body>
 	<div id="chart-container" style="position: relative; height:40vh; width:80vw">
 		<canvas id="graphCanvas"></canvas>
 	</div>
 
 	<script>
-		// $(document).ready(function () {
-		// 	showGraph();
-		// });
 
 
 		function showGraph()
@@ -57,7 +54,6 @@ BODY {
 						datasets: [
 							{
 								label: 'prephasing',
-								//backgroundColor: '#49e2ff', (to fill the area under graph line)
 								borderColor: '#46d5f1',
 								hoverBackgroundColor: '#CCCCCC',
 								hoverBorderColor: '#666666',
@@ -65,7 +61,6 @@ BODY {
 							},
 							{
 								label: 'lower_limit',
-								//backgroundColor: '#49e2ff', (to fill the area under graph line)
 								borderColor: '#ff0000',
 								hoverBackgroundColor: '#ff0000',
 								hoverBorderColor: '#666666',
@@ -107,7 +102,6 @@ BODY {
       drag: false,
       mode: "xy",
      speed: 0.5,
-     // sensitivity: 0.1,
       limits: {
         max: 10,
         min: 0.5

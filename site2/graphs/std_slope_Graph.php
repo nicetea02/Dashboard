@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Graph representing standard slope per run</title>
+<title>Standard slope graph</title>
 <style type="text/css">
 BODY {
 	width: 550PX;
@@ -24,16 +24,14 @@ BODY {
 
 
 </head>
+<div class="header">
+<h1>Standard Slope graph</h1>
 <body>
 	<div id="chart-container" style="position: relative; height:40vh; width:80vw">
 		<canvas id="graphCanvas"></canvas>
 	</div>
 
 	<script>
-		// $(document).ready(function () {
-		// 	showGraph();
-		// });
-
 
 		function showGraph()
 		{
@@ -57,7 +55,6 @@ BODY {
 						datasets: [
 							{
 								label: 'std_slope',
-								//backgroundColor: '#49e2ff', (to fill the area under graph line)
 								borderColor: '#46d5f1',
 								hoverBackgroundColor: '#CCCCCC',
 								hoverBorderColor: '#666666',
@@ -65,7 +62,6 @@ BODY {
 							},
 							{
 								label: 'lower_limit',
-								//backgroundColor: '#49e2ff', (to fill the area under graph line)
 								borderColor: '#ff0000',
 								hoverBackgroundColor: '#ff0000',
 								hoverBorderColor: '#666666',
@@ -73,7 +69,6 @@ BODY {
 							},
 							{
 								label: 'upper_limit',
-								//backgroundColor: '#49e2ff', (to fill the area under graph line)
 								borderColor: '#ff0000',
 								hoverBackgroundColor: '#ff0000',
 								hoverBorderColor: '#666666',
