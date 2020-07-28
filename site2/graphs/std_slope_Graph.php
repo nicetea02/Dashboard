@@ -26,6 +26,7 @@ BODY {
 </head>
 <div class="header">
 <h1>Standard Slope graph</h1>
+</div>
 <body>
 	<div id="chart-container" style="position: relative; height:40vh; width:80vw">
 		<canvas id="graphCanvas"></canvas>
