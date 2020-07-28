@@ -3,9 +3,6 @@
 <head>
 <title>Standard slope graph</title>
 <style type="text/css">
-BODY {
-	width: 550PX;
-}
 
 #chart-container {
 	width: 100%;
