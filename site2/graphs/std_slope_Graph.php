@@ -4,6 +4,7 @@
 <title>Standard slope graph</title>
 <style type="text/css">
 
+
 #chart-container {
 	width: 100%;
 	height: auto;
