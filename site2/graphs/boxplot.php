@@ -108,12 +108,14 @@ console.log(data111)
 
 var NL100103 = {
   y: data103,
-  type: 'box'
+  type: 'box',
+  name: 'NL100103'
 };
 
 var NL100111 = {
   y: data111,
-  type: 'box'
+  type: 'box',
+  name: 'NL100111'
 };
 
 var data = [NL100103, NL100111];
