@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>Parameter Boxplot</title>
+<link href="style.css" rel="stylesheet">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
@@ -15,7 +16,7 @@
 <option value="phasing">Phasing</option>
 <option value="prephasing">Prephasing</option>
 </select>
-<input type="submit" name="submit" value="Get Selected Values" />
+<input type="submit" name="submit" value="Submit" class="button" />
 </form>
 
 <?php
