@@ -42,14 +42,14 @@ foreach ($result_103 as $row_103) {
 
 
 $json = json_encode($data_103, JSON_FORCE_OBJECT);
-// /* $result_111 = mysqli_query($conn,$query_111);
+$result_111 = mysqli_query($conn,$query_111);
 
-// $data = array();
-// foreach ($result_111 as $row_111) {
-// 	$data_111[] = $row_111;
-// } */
+$data = array();
+foreach ($result_111 as $row_111) {
+$data_111[] = $row_111;
+} 
 
-// mysqli_close($conn);
+mysqli_close($conn);
 
 // echo json_encode($data_111);
 }
@@ -61,7 +61,7 @@ var search = "<?php echo $search ?>"
 var data103 = [];
 
 
-//
+
 function countProps(obj) {
     var count = 0;
     for (var p in obj) {
@@ -69,39 +69,58 @@ function countProps(obj) {
     }
     return count; 
 }
-//
+
 parseFloat(data_103[0].Q30)
 
 
-var data_103counter = countProps(data_103)
-for (var i=0;i < data_103counter;i++)  {
-		data103.push(data_103[i]);
+var data_103counter = countProps(data_103) 
+for (var i=0;i < data_103counter;i++)  { 
+                data103.push(data_103[i][search]); 
+
     
 					}
 console.log(data103)
 
-// function data2 (data_111){
-// var data111 = [];
+var data_111 = jQuery.parseJSON ('<?php echo $json; ?>');
+var search = "<?php echo $search ?>"
+var data111 = [];
 
-// for (var i in data_111){
-//     data111.push(data_111[i].$search);
-// }}
-console.log(data103)
+
+
+function countProps(obj) {
+    var count = 0;
+    for (var p in obj) {
+      obj.hasOwnProperty(p) && count++;
+    }
+    return count; 
+}
+
+parseFloat(data_111[0].Q30)
+
+
+var data_111counter = countProps(data_111) 
+for (var i=0;i < data_111counter;i++)  { 
+                data111.push(data_111[i][search]); 
+
+    
+					}
+console.log(data111)
+
 var NL100103 = {
   y: data103,
   type: 'box'
 };
 
-// var NL100111 = {
-//   y: data111,
-//   type: 'box'
-// };
+var NL100111 = {
+  y: data111,
+  type: 'box'
+};
 
-var data = [NL100103];
+var data = [NL100103, NL100111];
 console.log [NL100103]
-Plotly.newPlot('myDiv', data);
 </script>
 <div id='myDiv'style="width:600px;height:250px;">
 </div>
+<script>Plotly.newPlot('myDiv', data);</script>
 </body>
 </html>
