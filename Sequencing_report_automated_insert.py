@@ -29,52 +29,54 @@ for item in folder_list:
 print(diff_list)
 ###Gathering data out of file locations and inserting in the correct db table
 for folder in diff_list:
-    nipt = "C:\\Users\\jens_\\Desktop\\Bioinformatica\\Project\\NIPT_Output\\{}".format(folder)
-    print(nipt)
-    nipt_seq_report = os.path.join(nipt, "ProcessLogs")
-    print(os.getcwd())
-    os.chdir(nipt_seq_report)
-    file_list = []
-    for file in os.listdir("."):
-        if fnmatch.fnmatch(file, '*sequencing_report*.tab'):
-            print(file)
-            file_list.append(file)
-    print(file_list)
-    for file in file_list:
-        sequencing = []
-        with open (file, 'r') as f:
-            next(f)
-            reader = csv.reader(f, delimiter='\t')
-            for parameter in reader:
-                sequencing.append(parameter)
-        print(sequencing)
-        sequencing = sequencing[0]
-        print(sequencing)
-        list_seq = []
-        index_list = [0, 1, 2, 3, 9, 10, 12, 13, 0]
-        index = 0
-        for i in index_list:
-            list_seq.append(sequencing[index_list[index]])
-            index = index + 1
-            print(list_seq)
-
-
-    import mysql.connector
-    cnx=mysql.connector.connect(user="project",
-        password="Mol#biol2",
-        host = "127.0.0.1",
-        database = "nipt",
-        )
-
-    cursor=cnx.cursor()
     try:
-        sql = """INSERT INTO sequencing_report (batch_name, pool_barcode, instrument, flowcell_serial, cluster_density, Q30, phasing, prephasing, foldername) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"""
-        val = (list_seq[0], list_seq[1], list_seq[2], list_seq[3], list_seq[4], list_seq[5], list_seq[6], list_seq[7], list_seq[8])
-        cursor.execute(sql, val)
-        
-        cnx.commit()
+        nipt = "C:\\Users\\jens_\\Desktop\\Bioinformatica\\Project\\NIPT_Output\\{}".format(folder)
+        print(nipt)
+        nipt_seq_report = os.path.join(nipt, "ProcessLogs")
+        print(os.getcwd())
+        os.chdir(nipt_seq_report)
+        file_list = []
+        for file in os.listdir("."):
+            if fnmatch.fnmatch(file, '*sequencing_report*.tab'):
+                print(file)
+                file_list.append(file)
+        print(file_list)
+        for file in file_list:
+            sequencing = []
+            with open (file, 'r') as f:
+                next(f)
+                reader = csv.reader(f, delimiter='\t')
+                for parameter in reader:
+                    sequencing.append(parameter)
+            print(sequencing)
+            sequencing = sequencing[0]
+            print(sequencing)
+            list_seq = []
+            index_list = [0, 1, 2, 3, 9, 10, 12, 13, 0]
+            index = 0
+            for i in index_list:
+                list_seq.append(sequencing[index_list[index]])
+                index = index + 1
+                print(list_seq)
 
-        print(cursor.rowcount, "record inserted.")
-    except:
-        print("Record already present, skipping to next")
 
+        import mysql.connector
+        cnx=mysql.connector.connect(user="project",
+            password="Mol#biol2",
+            host = "127.0.0.1",
+            database = "nipt",
+            )
+
+        cursor=cnx.cursor()
+        try:
+            sql = """INSERT INTO sequencing_report (batch_name, pool_barcode, instrument, flowcell_serial, cluster_density, Q30, phasing, prephasing, foldername) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+            val = (list_seq[0], list_seq[1], list_seq[2], list_seq[3], list_seq[4], list_seq[5], list_seq[6], list_seq[7], list_seq[8])
+            cursor.execute(sql, val)
+            
+            cnx.commit()
+
+            print(cursor.rowcount, "record inserted.")
+        except:
+            print("Record already present, skipping to next")
+    except EOFError:
+        print("File not found")
