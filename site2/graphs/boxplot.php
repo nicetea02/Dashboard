@@ -42,22 +42,21 @@ foreach ($result_103 as $row_103) {
 }
 
 
-$json = json_encode($data_103, JSON_FORCE_OBJECT);
+$json103 = json_encode($data_103, JSON_FORCE_OBJECT);
 $result_111 = mysqli_query($conn,$query_111);
 
-$data = array();
+$data_111 = array();
 foreach ($result_111 as $row_111) {
 $data_111[] = $row_111;
 } 
-
+$json111 = json_encode($data_111, JSON_FORCE_OBJECT);
 mysqli_close($conn);
 
-// echo json_encode($data_111);
 }
 ?>
 
 <script>
-var data_103 = jQuery.parseJSON ('<?php echo $json; ?>');
+var data_103 = jQuery.parseJSON ('<?php echo $json103; ?>');
 var search = "<?php echo $search ?>"
 var data103 = [];
 
@@ -82,7 +81,7 @@ for (var i=0;i < data_103counter;i++)  {
 					}
 console.log(data103)
 
-var data_111 = jQuery.parseJSON ('<?php echo $json; ?>');
+var data_111 = jQuery.parseJSON ('<?php echo $json111; ?>');
 var search = "<?php echo $search ?>"
 var data111 = [];
 
@@ -122,7 +121,7 @@ var NL100111 = {
 var data = [NL100103, NL100111];
 console.log [NL100103]
 </script>
-<div id='myDiv'style="width:600px;height:250px;">
+<div id='myDiv'style="width:600px;height:800px;">
 </div>
 <script>Plotly.newPlot('myDiv', data);</script>
 </body>
